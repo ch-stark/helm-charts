@@ -1,0 +1,35 @@
+# Default values for mongodb.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+image:
+  repository: registry.access.redhat.com/rhscl/mongodb-32-rhel7
+  # use centos/mongodb-32-centos7 when running OpenShift Origin
+  tag: 3.2
+  pullPolicy: IfNotPresent
+
+serviceType: ClusterIP
+
+# mongodbUser:
+# mongodbPassword:
+# mongodbDatabase:
+# mongodbAdminPassword:
+
+persistence:
+  enabled: true
+  accessMode: ReadWriteOnce
+  size: 500Mi
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 100m
+    memory: 300Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "rocketchat.fullname" . }}
+  labels:
+    app: {{ template "rocketchat.name" . }}
+    chart: {{ template "rocketchat.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+  annontations:
+    service.alpha.openshift.io/dependencies: {{ template "rocketchat.service-annotation" . }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app: {{ template "rocketchat.name" . }}
+    release: {{ .Release.Name }}

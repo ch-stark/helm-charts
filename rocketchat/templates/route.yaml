@@ -1,0 +1,20 @@
+{{- if .Values.route.enabled -}}
+apiVersion: oapi/v1
+kind: Route
+metadata:
+  name: {{ template "rocketchat.fullname" . }}
+spec:
+  {{- if .Values.route.hostname }}
+  host: {{ .Values.route.hostname }}
+  {{- end }}
+  port:
+    targetPort: http
+  {{- if .Values.route.tls }}
+  {{ toYaml .Values.route.tls | indent 2 }}
+  {{- end -}}
+  to:
+    kind: Service
+    name: {{ template "rocketchat.fullname" . }}
+    weight: 100
+  wildcardPolicy: None
+{{- end -}}

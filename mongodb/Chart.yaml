@@ -1,0 +1,12 @@
+apiVersion: v1
+name: mongodb
+version: "0.1.0"
+appVersion: "3.2"
+description: MongoDB also running on OpenShift
+icon: https://avatars1.githubusercontent.com/u/45120
+keywords:
+  - mongo
+  - database
+  - openshift
+sources:
+  - https://github.com/porscheinformatik/helm-charts

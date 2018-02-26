@@ -1,0 +1,40 @@
+# Default values for rocketchat.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: rocketchat/rocket.chat
+  tag: 0.61.2
+  pullPolicy: IfNotPresent
+
+# Route is currently not working, see https://github.com/kubernetes/helm/issues/1331
+route:
+  enabled: false
+  # hostname:
+  tls:
+    termination: edge
+
+service:
+  type: ClusterIP
+  port: 80
+
+mongodb:
+  mongodbDatabase: rocketchat
+  mongodbUser: rocketchat
+  mongodbPassword: rocketchat
+
+resources:
+  limits:
+   cpu: 500m
+   memory: 1024Mi
+  requests:
+   cpu: 100m
+   memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
