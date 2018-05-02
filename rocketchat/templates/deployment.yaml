@@ -9,6 +9,12 @@ metadata:
     heritage: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.replicaCount }}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+      revisionHistoryLimit: 2
   selector:
     matchLabels:
       app: {{ template "rocketchat.name" . }}
