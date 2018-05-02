@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: rocketchat/rocket.chat
-  tag: 0.61.2
+  tag: 0.63.3
   pullPolicy: IfNotPresent
 
 # Route is currently not working, see https://github.com/kubernetes/helm/issues/1331
