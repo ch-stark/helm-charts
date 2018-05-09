@@ -3,9 +3,9 @@ entries:
   mongodb:
   - apiVersion: v1
     appVersion: "3.4"
-    created: 2018-05-09T11:36:10.063343575Z
+    created: 2018-05-09T19:25:04.528499505Z
     description: MongoDB also running on OpenShift
-    digest: 13b5d167e89442b77940dbcf262ba60920b907e1ed7e03b23d9c5adae0c17d5b
+    digest: bc7608b6bb0ecffc34400b380afadcfbe35986438618bb5dd87f221fa4429ed7
     icon: https://avatars1.githubusercontent.com/u/45120
     keywords:
     - mongo
@@ -20,11 +20,11 @@ entries:
   rocketchat:
   - apiVersion: v1
     appVersion: 0.63.3
-    created: 2018-05-09T11:36:10.064416183Z
+    created: 2018-05-09T19:25:04.529345883Z
     description: Rocket.Chat chat application
-    digest: 2c4a8fb04b6787d68cb099945a9911f7c75cd437aff0b498682e0e3fdf32e9ec
+    digest: 10fcd06127fda9300a638ab1a783a6135c80f8c3af63307e6cca0d7a1f71ae1f
     name: rocketchat
     urls:
     - https://porscheinformatik.github.io/helm-charts/rocketchat-0.2.0.tgz
     version: 0.2.0
-generated: 2018-05-09T11:36:10.062120465Z
+generated: 2018-05-09T19:25:04.527996331Z
