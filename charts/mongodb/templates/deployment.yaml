@@ -30,6 +30,7 @@ spec:
               containerPort: 27017
               protocol: TCP
           env:
+            {{- if and .Values.mongodbUsername .Values.mongodbDatabase }}
             - name: MONGODB_USER
               value: {{ .Values.mongodbUser }}
             - name: MONGODB_PASSWORD
@@ -39,6 +40,7 @@ spec:
                   key: mongodb-password
             - name: MONGODB_DATABASE
               value: {{ .Values.mongodbDatabase }}
+            {{- end }}
             - name: MONGODB_ADMIN_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -58,12 +60,11 @@ spec:
           readinessProbe:
             exec:
               command:
-                - /bin/sh
-                - '-i'
-                - '-c'
-                - >-
-                  mongo 127.0.0.1:27017/$MONGODB_DATABASE -u $MONGODB_USER -p
-                  $MONGODB_PASSWORD --eval="quit()"
+              - /bin/sh
+              - '-i'
+              - '-c'
+              - >- 
+                mongo --eval "db.adminCommand('ping')"
           resources:
 {{ toYaml .Values.resources | indent 12 }}
       volumes:
