@@ -3,10 +3,10 @@
 # Declare variables to be passed into your templates.
 
 image:
-  repository: registry.access.redhat.com/rhscl/mongodb-32-rhel7
-  # use centos/mongodb-32-centos7 when running OpenShift Origin
-  tag: 3.2
-  pullPolicy: IfNotPresent
+  repository: registry.access.redhat.com/rhscl/mongodb-34-rhel7
+  # use centos/mongodb-34-centos7 when running OpenShift Origin
+  tag: 1
+  pullPolicy: Always
 
 serviceType: ClusterIP
 
