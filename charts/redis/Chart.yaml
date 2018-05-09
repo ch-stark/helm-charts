@@ -1,0 +1,11 @@
+apiVersion: v1
+name: redis
+description: Redis also running on OpenShift
+version: "0.1.0"
+appVersion: "3.2"
+keywords:
+  - redis
+  - database
+  - openshift
+sources:
+  - https://github.com/porscheinformatik/helm-charts
