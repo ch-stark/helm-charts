@@ -1,6 +1,0 @@
-dependencies:
-- name: mongodb
-  repository: http://127.0.0.1:8879/charts
-  version: 0.1.0
-digest: sha256:6d58f6b551459b03da9a064e324cc3a6caa8fb51b20a2b7b21ab45e6698a3ed7
-generated: 2018-02-23T08:10:54.1362064+01:00

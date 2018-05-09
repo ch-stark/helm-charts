@@ -1,0 +1,6 @@
+dependencies:
+- name: mongodb
+  repository: file://../mongodb
+  version: 0.2.0
+digest: sha256:afb7b041205d394c492186876dcdad2fad1b01354f33f27a7fb89e6a254309ec
+generated: 2018-05-09T12:24:43.0009387+02:00
