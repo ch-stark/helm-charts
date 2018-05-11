@@ -3,7 +3,7 @@ entries:
   mongodb:
   - apiVersion: v1
     appVersion: "3.4"
-    created: 2018-05-09T19:25:04.528499505Z
+    created: 2018-05-11T09:43:35.685011854Z
     description: MongoDB also running on OpenShift
     digest: bc7608b6bb0ecffc34400b380afadcfbe35986438618bb5dd87f221fa4429ed7
     icon: https://avatars1.githubusercontent.com/u/45120
@@ -17,14 +17,32 @@ entries:
     urls:
     - https://porscheinformatik.github.io/helm-charts/mongodb-0.2.0.tgz
     version: 0.2.0
+  postgresql:
+  - apiVersion: v1
+    appVersion: "9.6"
+    created: 2018-05-11T09:43:35.685482588Z
+    description: Postgresql for OpenShift
+    digest: 29b6fbd97504b56c4c2055d69f14635fffb10de994dcf98b63d4bea396c6cd04
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/200px-Postgresql_elephant.svg.png
+    keywords:
+    - postgres
+    - postgresql
+    - database
+    - openshift
+    name: postgresql
+    sources:
+    - https://github.com/porscheinformatik/helm-charts
+    urls:
+    - https://porscheinformatik.github.io/helm-charts/postgresql-1.0.0.tgz
+    version: 1.0.0
   rocketchat:
   - apiVersion: v1
     appVersion: 0.63.3
-    created: 2018-05-09T19:25:04.529345883Z
+    created: 2018-05-11T09:43:35.68618058Z
     description: Rocket.Chat chat application
     digest: 10fcd06127fda9300a638ab1a783a6135c80f8c3af63307e6cca0d7a1f71ae1f
     name: rocketchat
     urls:
     - https://porscheinformatik.github.io/helm-charts/rocketchat-0.2.0.tgz
     version: 0.2.0
-generated: 2018-05-09T19:25:04.527996331Z
+generated: 2018-05-11T09:43:35.684338478Z
