@@ -32,7 +32,7 @@ spec:
           env:
             {{- if and .Values.mongodbUsername .Values.mongodbDatabase }}
             - name: MONGODB_USER
-              value: {{ .Values.mongodbUser }}
+              value: {{ .Values.mongodbUsername }}
             - name: MONGODB_PASSWORD
               valueFrom:
                 secretKeyRef:
