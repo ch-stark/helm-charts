@@ -9,7 +9,7 @@ image:
   tag: 0.63.3
   pullPolicy: IfNotPresent
 
-# Route is currently not working, see https://github.com/kubernetes/helm/issues/1331
+# Route
 route:
   enabled: false
   # hostname:
@@ -22,7 +22,7 @@ service:
 
 mongodb:
   mongodbDatabase: rocketchat
-  mongodbUser: rocketchat
+  mongodbUsername: rocketchat
   mongodbPassword: rocketchat
 
 resources:
