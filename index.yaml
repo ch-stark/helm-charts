@@ -3,7 +3,7 @@ entries:
   mongodb:
   - apiVersion: v1
     appVersion: "3.4"
-    created: 2018-05-23T11:15:44.9854306Z
+    created: 2018-05-23T18:47:35.46336926Z
     description: MongoDB also running on OpenShift
     digest: b5f6827f21cde9d6afa7718960cc3b4d6a982caff7a7f4e5d0653bade799e33d
     icon: https://avatars1.githubusercontent.com/u/45120
@@ -20,7 +20,7 @@ entries:
   postgresql:
   - apiVersion: v1
     appVersion: "9.6"
-    created: 2018-05-23T11:15:44.986346921Z
+    created: 2018-05-23T18:47:35.463715317Z
     description: Postgresql for OpenShift
     digest: 29b6fbd97504b56c4c2055d69f14635fffb10de994dcf98b63d4bea396c6cd04
     icon: https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/200px-Postgresql_elephant.svg.png
@@ -38,7 +38,7 @@ entries:
   redis:
   - apiVersion: v1
     appVersion: "3.2"
-    created: 2018-05-23T11:15:44.987076811Z
+    created: 2018-05-23T18:47:35.464012909Z
     description: Redis also running on OpenShift
     digest: ecd10417c4ded7538a98dd70ff8ad37c268d9e7c7473cc649b246d3ad4d7ed76
     keywords:
@@ -54,9 +54,9 @@ entries:
   rocketchat:
   - apiVersion: v1
     appVersion: 0.63.3
-    created: 2018-05-23T11:15:44.988220193Z
+    created: 2018-05-23T18:47:35.464503985Z
     description: Rocket.Chat chat application
-    digest: f3c423dc9b988ba6eb41db0e3b6871d8e1ccee080c387aa0fb8e24a62269860c
+    digest: 8f8f1e697277e8866ee6a705dff84021e8ff84ce0edcc04e97d5502f3f90e392
     name: rocketchat
     urls:
     - https://porscheinformatik.github.io/helm-charts/rocketchat-0.2.0.tgz
@@ -64,11 +64,11 @@ entries:
   wekan:
   - apiVersion: v1
     appVersion: v1.00
-    created: 2018-05-23T11:15:44.989079006Z
+    created: 2018-05-23T18:47:35.465064273Z
     description: Wekan - The open-source Trello-like kanban.
-    digest: 816074eca3d571bdac8ddc2949d8f3d56bb8c2addacee917cfc504c33922921a
+    digest: bbf7f3fdf7915ae0f7a0f9040ef27863cf075c3c7c42e23a1cee48f3c595d0e4
     name: wekan
     urls:
     - https://porscheinformatik.github.io/helm-charts/wekan-0.1.0.tgz
     version: 0.1.0
-generated: 2018-05-23T11:15:44.984337863Z
+generated: 2018-05-23T18:47:35.462847139Z
