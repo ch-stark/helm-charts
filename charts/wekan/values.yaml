@@ -1,0 +1,43 @@
+# Default values for wekan.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+wekanRootUrl:
+wekanMailUrl:
+wekanMaiFrom:
+
+image:
+  repository: wekanteam/wekan
+  tag: v1.00
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8080
+
+route:
+  enabled: false
+  # hostname:
+  tls:
+    termination: edge
+
+mongodb:
+  mongodbDatabase: wekan
+  mongodbUsername: wekan
+  mongodbPassword: wekan
+
+resources:
+  limits:
+   cpu: 500m
+   memory: 500Mi
+  requests:
+   cpu: 100m
+   memory: 200Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

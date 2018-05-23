@@ -3,3 +3,4 @@ build/
 
 # Chart dependencies
 **/charts/*.tgz
+charts/*/requirements.lock

@@ -1,0 +1,69 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ template "wekan.fullname" . }}
+  labels:
+    app: {{ template "wekan.name" . }}
+    chart: {{ template "wekan.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+      revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: {{ template "wekan.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "wekan.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          env:
+           - name: MONGO_URL
+             value: "mongodb://{{ .Values.mongodb.mongodbUsername }}:{{ .Values.mongodb.mongodbPassword }}@{{ template "wekan.mongodb.fullname" . }}:27017/{{ .Values.mongodb.mongodbDatabase }}"
+           - name: ROOT_URL
+             value: {{ .Values.wekanRootUrl }}
+           - name: MAIL_URL
+             value: {{ .Values.wekanMailUrl }}
+           - name: MAIL_FROM
+             value: {{ .Values.wekanMaiFrom }}
+           - name: PORT
+             value: "8080"
+          livenessProbe:
+            tcpSocket:
+              port: http
+            timeoutSeconds: 1
+          readinessProbe:
+            httpGet:
+              path: /cfs/servertime
+              port: http
+            timeoutSeconds: 1
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+    {{- with .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}
