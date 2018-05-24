@@ -3,7 +3,7 @@ entries:
   mongodb:
   - apiVersion: v1
     appVersion: "3.4"
-    created: 2018-05-23T18:47:35.46336926Z
+    created: 2018-05-24T09:17:23.789182093Z
     description: MongoDB also running on OpenShift
     digest: b5f6827f21cde9d6afa7718960cc3b4d6a982caff7a7f4e5d0653bade799e33d
     icon: https://avatars1.githubusercontent.com/u/45120
@@ -20,7 +20,7 @@ entries:
   postgresql:
   - apiVersion: v1
     appVersion: "9.6"
-    created: 2018-05-23T18:47:35.463715317Z
+    created: 2018-05-24T09:17:23.789911679Z
     description: Postgresql for OpenShift
     digest: 29b6fbd97504b56c4c2055d69f14635fffb10de994dcf98b63d4bea396c6cd04
     icon: https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/200px-Postgresql_elephant.svg.png
@@ -38,7 +38,7 @@ entries:
   redis:
   - apiVersion: v1
     appVersion: "3.2"
-    created: 2018-05-23T18:47:35.464012909Z
+    created: 2018-05-24T09:17:23.790605013Z
     description: Redis also running on OpenShift
     digest: ecd10417c4ded7538a98dd70ff8ad37c268d9e7c7473cc649b246d3ad4d7ed76
     keywords:
@@ -54,9 +54,9 @@ entries:
   rocketchat:
   - apiVersion: v1
     appVersion: 0.63.3
-    created: 2018-05-23T18:47:35.464503985Z
+    created: 2018-05-24T09:17:23.792093051Z
     description: Rocket.Chat chat application
-    digest: 8f8f1e697277e8866ee6a705dff84021e8ff84ce0edcc04e97d5502f3f90e392
+    digest: 1dcbf75fac57198154b2bb9e7fc5ee0568fc298156b03c6cce03bcfe499a9c62
     name: rocketchat
     urls:
     - https://porscheinformatik.github.io/helm-charts/rocketchat-0.2.0.tgz
@@ -64,11 +64,11 @@ entries:
   wekan:
   - apiVersion: v1
     appVersion: v1.00
-    created: 2018-05-23T18:47:35.465064273Z
+    created: 2018-05-24T09:17:23.793122342Z
     description: Wekan - The open-source Trello-like kanban.
-    digest: bbf7f3fdf7915ae0f7a0f9040ef27863cf075c3c7c42e23a1cee48f3c595d0e4
+    digest: 459b0894c38b0078331ebdc8834ae5472dc0d2e4a015a5b0413d058ed0a87b34
     name: wekan
     urls:
     - https://porscheinformatik.github.io/helm-charts/wekan-0.1.0.tgz
     version: 0.1.0
-generated: 2018-05-23T18:47:35.462847139Z
+generated: 2018-05-24T09:17:23.788216312Z
