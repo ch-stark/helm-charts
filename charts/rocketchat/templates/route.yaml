@@ -10,6 +10,7 @@ spec:
   port:
     targetPort: http
   {{- if .Values.route.tls }}
+  tls:
   {{ toYaml .Values.route.tls | indent 2 }}
   {{- end -}}
   to:
