@@ -20,6 +20,9 @@ spec:
       labels:
         app: {{ template "mongodb.name" . }}
         release: {{ .Release.Name }}
+        {{- if .Values.mongodbBackupEnabled }}
+        backup: mongodb
+        {{- end }}
     spec:
       containers:
         - name: {{ .Chart.Name }}
