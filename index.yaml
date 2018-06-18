@@ -3,7 +3,23 @@ entries:
   mongodb:
   - apiVersion: v1
     appVersion: "3.4"
-    created: 2018-06-13T14:44:40.548277272Z
+    created: 2018-06-18T14:12:49.141908294Z
+    description: MongoDB also running on OpenShift
+    digest: 602f78f12ac7d3299b22f3e0192e6a682478077c92ebb442833a01d387fe35e5
+    icon: https://avatars1.githubusercontent.com/u/45120
+    keywords:
+    - mongo
+    - database
+    - openshift
+    name: mongodb
+    sources:
+    - https://github.com/porscheinformatik/helm-charts
+    urls:
+    - https://porscheinformatik.github.io/helm-charts/mongodb-0.2.2.tgz
+    version: 0.2.2
+  - apiVersion: v1
+    appVersion: "3.4"
+    created: 2018-06-18T14:12:49.141577679Z
     description: MongoDB also running on OpenShift
     digest: 523b0e600d37a93247fb504bcfae316acb0ab38c6ab144b8d2fde910d0ba2bc8
     icon: https://avatars1.githubusercontent.com/u/45120
@@ -19,7 +35,7 @@ entries:
     version: 0.2.1
   - apiVersion: v1
     appVersion: "3.4"
-    created: 2018-06-13T14:44:40.547960276Z
+    created: 2018-06-18T14:12:49.141241213Z
     description: MongoDB also running on OpenShift
     digest: b5f6827f21cde9d6afa7718960cc3b4d6a982caff7a7f4e5d0653bade799e33d
     icon: https://avatars1.githubusercontent.com/u/45120
@@ -36,7 +52,7 @@ entries:
   postgresql:
   - apiVersion: v1
     appVersion: "9.6"
-    created: 2018-06-13T14:44:40.548637718Z
+    created: 2018-06-18T14:12:49.142658973Z
     description: Postgresql for OpenShift
     digest: 29b6fbd97504b56c4c2055d69f14635fffb10de994dcf98b63d4bea396c6cd04
     icon: https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/200px-Postgresql_elephant.svg.png
@@ -54,7 +70,7 @@ entries:
   redis:
   - apiVersion: v1
     appVersion: "3.2"
-    created: 2018-06-13T14:44:40.548924613Z
+    created: 2018-06-18T14:12:49.143193674Z
     description: Redis also running on OpenShift
     digest: ecd10417c4ded7538a98dd70ff8ad37c268d9e7c7473cc649b246d3ad4d7ed76
     keywords:
@@ -70,9 +86,9 @@ entries:
   rocketchat:
   - apiVersion: v1
     appVersion: 0.63.3
-    created: 2018-06-13T14:44:40.549400846Z
+    created: 2018-06-18T14:12:49.143967447Z
     description: Rocket.Chat chat application
-    digest: 93a10b3ef637cdb293173d41da9f78d50f18ce1fc8d9022b36549691eda12f0c
+    digest: 3112f9a1366f8580167e8d047989a142708cd52f4e86831a685bf610fb2b068a
     name: rocketchat
     urls:
     - https://porscheinformatik.github.io/helm-charts/rocketchat-0.2.0.tgz
@@ -80,11 +96,11 @@ entries:
   wekan:
   - apiVersion: v1
     appVersion: v1.00
-    created: 2018-06-13T14:44:40.549892581Z
+    created: 2018-06-18T14:12:49.144683892Z
     description: Wekan - The open-source Trello-like kanban.
-    digest: c4c219862f38cf1e1b901b0e4271f1031e1547e311ba1d22c8797943e4f3587b
+    digest: a7a29b4da5cd28469e304347fe55017b3b39625665da22ebcefb696d705c12dd
     name: wekan
     urls:
     - https://porscheinformatik.github.io/helm-charts/wekan-0.1.0.tgz
     version: 0.1.0
-generated: 2018-06-13T14:44:40.547511078Z
+generated: 2018-06-18T14:12:49.140622112Z
