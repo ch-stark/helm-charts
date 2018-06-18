@@ -1,5 +1,5 @@
-apiVersion: extensions/v1beta1
-kind: Deployment
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
 metadata:
   name: {{ template "mongodb.fullname" . }}
   labels:
@@ -12,9 +12,8 @@ spec:
   strategy:
     type: Recreate
   selector:
-    matchLabels:
-      app: {{ template "mongodb.name" . }}
-      release: {{ .Release.Name }}
+    app: {{ template "mongodb.name" . }}
+    release: {{ .Release.Name }}
   template:
     metadata:
       labels:
