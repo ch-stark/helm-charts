@@ -1,0 +1,36 @@
+# Default values for mongodb-replication.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+# At lease 3 replicas are needed
+replicaCount: 3
+
+image:
+  repository: rhscl/mongodb-36-rhel7
+  tag: latest
+  pullPolicy: Always
+
+service:
+  type: ClusterIP
+  port: 27017
+
+mongodbReplicaName: rs0
+mongodbBackupEnabled: true
+
+persistence:
+  enabled: true
+  accessMode: ReadWriteOnce
+  size: 500Mi
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 100m
+    memory: 300Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

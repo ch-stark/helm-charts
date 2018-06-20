@@ -1,0 +1,22 @@
+# A headless service to create DNS records
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "mongodb-replication.fullname" . }}-internal
+  labels:
+    app: {{ template "mongodb-replication.name" . }}
+    chart: {{ template "mongodb-replication.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+  annotations:
+    service.alpha.kubernetes.io/tolerate-unready-endpoints: "true"
+spec:
+  clusterIP: None  
+  ports:
+    - port: {{ .Values.service.port }}
+      name: mongodb          
+  selector:
+    app: {{ template "mongodb-replication.name" . }}
+    release: {{ .Release.Name }}
+    # will route traffic to pods having labels matching this selector
+    name: {{ template "mongodb-replication.fullname" . }}
