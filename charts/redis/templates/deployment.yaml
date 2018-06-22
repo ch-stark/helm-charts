@@ -10,7 +10,10 @@ metadata:
 spec:
   replicas: {{ .Values.replicaCount }}
   strategy:
-    type: Recreate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
   selector:
     matchLabels:
       app: {{ template "redis.name" . }}
