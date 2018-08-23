@@ -1,0 +1,40 @@
+# Default values for haproxy.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: haproxy
+  tag: alpine
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8080
+
+route:
+  enabled: false
+  # hostname:
+  tls:
+    termination: edge
+
+# Custom haproxy configuration files
+# config: |-
+#    frontend http-in
+#        bind *:8080
+#        mode http
+
+resources:
+  limits:
+   cpu: 1
+   memory: 512Mi
+  requests:
+   cpu: 100m
+   memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
