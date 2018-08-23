@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "haproxy.fullname" . }}-cfg
+  labels:
+    app: {{ .Release.Name }}
+    module: {{ template "haproxy.name" . }}
+    chart: {{ template "haproxy.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+data:
+  haproxy.cfg: |-
+{{ if  .Values.config }}  
+{{ .Values.config | indent 4 }}
+{{ else if .Values.configfile }}
+{{ range .Files.Lines .Values.configfile }}
+{{ . | indent 4}}{{ end }}
+{{ end }}
