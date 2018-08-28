@@ -1,9 +1,19 @@
 apiVersion: v1
 entries:
+  mariadb:
+  - apiVersion: v1
+    appVersion: "10.1"
+    created: 2018-08-28T09:48:05.478055252Z
+    description: MariaDB for OpenShift
+    digest: a7d3fece8c5f7fde7065e4f41f5bc45929490526c6c2f6dc71cb1f71d27b0658
+    name: mariadb
+    urls:
+    - https://porscheinformatik.github.io/helm-charts/mariadb-0.1.0.tgz
+    version: 0.1.0
   mongodb:
   - apiVersion: v1
     appVersion: "3.4"
-    created: 2018-06-22T07:07:56.930625562Z
+    created: 2018-08-28T09:48:05.479592451Z
     description: MongoDB also running on OpenShift
     digest: 602f78f12ac7d3299b22f3e0192e6a682478077c92ebb442833a01d387fe35e5
     icon: https://avatars1.githubusercontent.com/u/45120
@@ -19,7 +29,7 @@ entries:
     version: 0.2.2
   - apiVersion: v1
     appVersion: "3.4"
-    created: 2018-06-22T07:07:56.930165715Z
+    created: 2018-08-28T09:48:05.479162372Z
     description: MongoDB also running on OpenShift
     digest: 523b0e600d37a93247fb504bcfae316acb0ab38c6ab144b8d2fde910d0ba2bc8
     icon: https://avatars1.githubusercontent.com/u/45120
@@ -35,7 +45,7 @@ entries:
     version: 0.2.1
   - apiVersion: v1
     appVersion: "3.4"
-    created: 2018-06-22T07:07:56.929580121Z
+    created: 2018-08-28T09:48:05.478416048Z
     description: MongoDB also running on OpenShift
     digest: b5f6827f21cde9d6afa7718960cc3b4d6a982caff7a7f4e5d0653bade799e33d
     icon: https://avatars1.githubusercontent.com/u/45120
@@ -52,7 +62,7 @@ entries:
   mongodb-replication:
   - apiVersion: v1
     appVersion: "3.6"
-    created: 2018-06-22T07:07:56.931081442Z
+    created: 2018-08-28T09:48:05.480024972Z
     description: Helm Chart for mongodb including replication in the openshift environment
     digest: 82fe2fe9651c2f0c9b00874b0fcf79478a4fd816db92c1e251296fc3534e834b
     name: mongodb-replication
@@ -62,7 +72,7 @@ entries:
   postgresql:
   - apiVersion: v1
     appVersion: "9.6"
-    created: 2018-06-22T07:07:56.931517735Z
+    created: 2018-08-28T09:48:05.480535305Z
     description: Postgresql for OpenShift
     digest: 29b6fbd97504b56c4c2055d69f14635fffb10de994dcf98b63d4bea396c6cd04
     icon: https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/200px-Postgresql_elephant.svg.png
@@ -80,7 +90,7 @@ entries:
   redis:
   - apiVersion: v1
     appVersion: "3.2"
-    created: 2018-06-22T07:07:56.932333994Z
+    created: 2018-08-28T09:48:05.481338129Z
     description: Redis also running on OpenShift
     digest: a35d3de9d0ee8942641564c7d756eacf9265b5cbd7172a2a439df59d9bdba924
     keywords:
@@ -95,7 +105,7 @@ entries:
     version: 0.1.1
   - apiVersion: v1
     appVersion: "3.2"
-    created: 2018-06-22T07:07:56.931965289Z
+    created: 2018-08-28T09:48:05.480914571Z
     description: Redis also running on OpenShift
     digest: ecd10417c4ded7538a98dd70ff8ad37c268d9e7c7473cc649b246d3ad4d7ed76
     keywords:
@@ -111,9 +121,9 @@ entries:
   rocketchat:
   - apiVersion: v1
     appVersion: 0.63.3
-    created: 2018-06-22T07:07:56.933232198Z
+    created: 2018-08-28T09:48:05.482110458Z
     description: Rocket.Chat chat application
-    digest: 9ca7a2c97e18888dc285fef0e4cbf58213dd3b6d44e5f6806fb3436ce4628f16
+    digest: d4035be1423eece6f2f334249a285a59ade3c7f0a355d0994945e9e818dff789
     name: rocketchat
     urls:
     - https://porscheinformatik.github.io/helm-charts/rocketchat-0.2.0.tgz
@@ -121,11 +131,21 @@ entries:
   wekan:
   - apiVersion: v1
     appVersion: v1.00
-    created: 2018-06-22T07:07:56.934107539Z
+    created: 2018-08-28T09:48:05.482844181Z
     description: Wekan - The open-source Trello-like kanban.
-    digest: d758f525893deefc8ffd92ece5704e9b9f6a86dfaf93403d19517ca3552b7462
+    digest: 5eb11b27b5b804b6386c7d70b013727151b33905d87f3a5d23c12893c903681e
     name: wekan
     urls:
     - https://porscheinformatik.github.io/helm-charts/wekan-0.1.0.tgz
     version: 0.1.0
-generated: 2018-06-22T07:07:56.928618898Z
+  zanata:
+  - apiVersion: v1
+    appVersion: 4.4.5
+    created: 2018-08-28T09:48:05.483709144Z
+    description: Zanata Translation Server
+    digest: be47a8cd5d6bb2c3de3fb58ed659626cb0df68cdfff4a3751b074a49365bb68f
+    name: zanata
+    urls:
+    - https://porscheinformatik.github.io/helm-charts/zanata-0.1.0.tgz
+    version: 0.1.0
+generated: 2018-08-28T09:48:05.477553228Z
