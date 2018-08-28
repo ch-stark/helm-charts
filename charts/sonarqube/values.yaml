@@ -1,0 +1,62 @@
+# Default values for sonarqube.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+image:
+  repository: porscheinformatik/sonarqube
+  tag: 6.7.5-alpine
+  pullPolicy: IfNotPresent
+
+# Set a context path for the SonarQube server
+contextPath: /
+
+# Additional settings for SonarQube overriding defaults in sonar.properties. Format key=value
+# The properties are passed in as "-D" to the main process.
+additionalSonarProperties: []
+
+persistence:
+  enabled: false
+  ## If defined, storageClassName: <storageClass>
+  ## If set to "-", storageClassName: "", which disables dynamic provisioning
+  ## If undefined (the default) or set to null, no storageClassName spec is
+  ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+  ##   GKE, AWS & OpenStack)
+  ##
+  # storageClass: "-"
+  accessMode: ReadWriteOnce
+  # size: 10Gi
+
+service:
+  type: ClusterIP
+  port: 80
+
+# Route
+route:
+  enabled: false
+  # hostname:
+  # path:
+  tls:
+    termination: edge
+
+livenessProbe:
+  initialDelaySeconds: 60
+  periodSeconds: 30
+  failureThreshold: 3
+readinessProbe:
+  initialDelaySeconds: 60
+  periodSeconds: 10
+  failureThreshold: 3
+
+resources:
+  limits:
+    cpu: 1
+    memory: 2Gi
+  requests:
+    cpu: 100m
+    memory: 1Gi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

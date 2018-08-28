@@ -1,0 +1,15 @@
+{{- if .Values.sonarProperties -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "sonarqube.fullname" . }}-config
+  labels:
+    app: {{ .Release.Name }}
+    module: {{ template "sonarqube.name" . }}
+    chart: {{ template "sonarqube.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+data:
+  sonar.properties:
+{{ toYaml .Values.sonarProperties | indent 4}}
+{{- end -}}
