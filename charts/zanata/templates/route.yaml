@@ -1,0 +1,27 @@
+{{- if .Values.route.enabled -}}
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: {{ template "zanata.fullname" . }}
+  labels:
+    app: {{ .Release.Name }}
+    module: {{ template "zanata.name" . }}
+    chart: {{ template "zanata.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  {{- if .Values.route.hostname }}
+  host: {{ .Values.route.hostname }}
+  {{- end }}
+  port:
+    targetPort: http
+  {{- if .Values.route.tls }}
+  tls:
+  {{ toYaml .Values.route.tls | indent 2 }}
+  {{- end -}}
+  to:
+    kind: Service
+    name: {{ template "zanata.fullname" . }}
+    weight: 100
+  wildcardPolicy: None
+{{- end -}}

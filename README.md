@@ -24,3 +24,5 @@ Install stuff
 - MongoDB
 - PostgreSQL
 - Rocket.Chat
+- MariaDB
+- Zanata

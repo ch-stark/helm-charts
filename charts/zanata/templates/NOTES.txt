@@ -1,0 +1,12 @@
+Thank you for installing Zanata
+
+{{- if .Values.route.enabled }}
+Application URL:
+  {{- if .Values.route.hostname }}
+  https://{{ .Values.route.hostname }}
+  {{- else if .Values.route.basename }}
+  https://{{ template "mariadb.fullname" . }}.{{ .Values.route.basename }}
+  {{- else }}
+  Run: oc get route {{ template "mariadb.fullname" . }}
+  {{- end }}
+{{- end }}

@@ -1,0 +1,59 @@
+# Default values for mariadb.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+## Create a database user
+## Default: sampledb
+# mariadbUser:
+## Default: random 10 character string
+# mariadbPassword:
+
+db:
+  ## MariaDB username and password
+  user:
+  password:
+  ## Database to create
+  name:
+  ## Password for root user
+  rootPassword:
+
+image:
+  repository: registry.access.redhat.com/rhscl/mariadb-101-rhel7
+  tag: "10.1-9"
+  pullPolicy: IfNotPresent
+
+## Persist data to a persitent volume
+persistence:
+  enabled: true
+
+  ## A manually managed Persistent Volume and Claim
+  ## Requires persistence.enabled: true
+  ## If defined, PVC must be created manually before volume will be bound
+  # existingClaim:
+
+  ## database data Persistent Volume Storage Class
+  ## If defined, storageClassName: <storageClass>
+  ## If set to "-", storageClassName: "", which disables dynamic provisioning
+  ## If undefined (the default) or set to null, no storageClassName spec is
+  ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+  ##   GKE, AWS & OpenStack)
+  ##
+  # storageClass: "-"
+  accessMode: ReadWriteOnce
+  size: 1Gi
+
+service:
+  type: ClusterIP
+  port: 3306
+
+resources:
+  limits:
+    memory: 512Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

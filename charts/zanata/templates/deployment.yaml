@@ -1,0 +1,85 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ template "zanata.fullname" . }}
+  labels:
+    app: {{ .Release.Name }}
+    module: {{ template "zanata.name" . }}
+    chart: {{ template "zanata.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+      module: {{ template "zanata.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+        module: {{ template "zanata.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      volumes:
+        - name: data
+        {{- if .Values.persistence.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ template "zanata.fullname" . }}
+        {{- else }}
+          emptyDir: {}
+        {{- end }}
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /var/lib/zanata
+              name: data
+          env:
+            - name: ZANATA_PORT
+              value: "8080"
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  key: database-user
+                  name: {{ template "mariadb.fullname" . }}
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: database-password
+                  name: {{ template "mariadb.fullname" . }}
+            - name: DB_HOSTNAME
+              value: {{ template "mariadb.fullname" . }}
+            - name: DB_SCHEMA
+              valueFrom:
+                secretKeyRef:
+                  key: database-name
+                  name: {{ template "mariadb.fullname" . }}
+          livenessProbe:
+            tcpSocket:
+              port: http
+          readinessProbe:
+            tcpSocket:
+              port: http
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+    {{- with .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}

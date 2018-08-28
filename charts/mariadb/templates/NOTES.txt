@@ -1,0 +1,8 @@
+The following service(s) have been created in your project: {{ template "mariadb.fullname" . }}.
+
+         Username: {{ default "sampledb" .Values.db.user }}
+         Password: look at secret {{ template "mariadb.fullname" . }} for the password
+    Database Name: {{ default "sampledb" .Values.db.name }}
+   Connection URL: mysql://{{ template "mariadb.fullname" . }}:3306/
+
+For more information see https://github.com/sclorg/mariadb-container/blob/master/10.1/README.md.
