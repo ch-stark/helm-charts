@@ -3,7 +3,7 @@ entries:
   mariadb:
   - apiVersion: v1
     appVersion: "10.1"
-    created: 2018-08-28T09:48:05.478055252Z
+    created: 2018-08-28T09:54:12.099255055Z
     description: MariaDB for OpenShift
     digest: a7d3fece8c5f7fde7065e4f41f5bc45929490526c6c2f6dc71cb1f71d27b0658
     name: mariadb
@@ -13,7 +13,7 @@ entries:
   mongodb:
   - apiVersion: v1
     appVersion: "3.4"
-    created: 2018-08-28T09:48:05.479592451Z
+    created: 2018-08-28T09:54:12.108954488Z
     description: MongoDB also running on OpenShift
     digest: 602f78f12ac7d3299b22f3e0192e6a682478077c92ebb442833a01d387fe35e5
     icon: https://avatars1.githubusercontent.com/u/45120
@@ -29,7 +29,7 @@ entries:
     version: 0.2.2
   - apiVersion: v1
     appVersion: "3.4"
-    created: 2018-08-28T09:48:05.479162372Z
+    created: 2018-08-28T09:54:12.100225075Z
     description: MongoDB also running on OpenShift
     digest: 523b0e600d37a93247fb504bcfae316acb0ab38c6ab144b8d2fde910d0ba2bc8
     icon: https://avatars1.githubusercontent.com/u/45120
@@ -45,7 +45,7 @@ entries:
     version: 0.2.1
   - apiVersion: v1
     appVersion: "3.4"
-    created: 2018-08-28T09:48:05.478416048Z
+    created: 2018-08-28T09:54:12.099760078Z
     description: MongoDB also running on OpenShift
     digest: b5f6827f21cde9d6afa7718960cc3b4d6a982caff7a7f4e5d0653bade799e33d
     icon: https://avatars1.githubusercontent.com/u/45120
@@ -62,7 +62,7 @@ entries:
   mongodb-replication:
   - apiVersion: v1
     appVersion: "3.6"
-    created: 2018-08-28T09:48:05.480024972Z
+    created: 2018-08-28T09:54:12.110464746Z
     description: Helm Chart for mongodb including replication in the openshift environment
     digest: 82fe2fe9651c2f0c9b00874b0fcf79478a4fd816db92c1e251296fc3534e834b
     name: mongodb-replication
@@ -72,7 +72,7 @@ entries:
   postgresql:
   - apiVersion: v1
     appVersion: "9.6"
-    created: 2018-08-28T09:48:05.480535305Z
+    created: 2018-08-28T09:54:12.111562487Z
     description: Postgresql for OpenShift
     digest: 29b6fbd97504b56c4c2055d69f14635fffb10de994dcf98b63d4bea396c6cd04
     icon: https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/200px-Postgresql_elephant.svg.png
@@ -90,7 +90,7 @@ entries:
   redis:
   - apiVersion: v1
     appVersion: "3.2"
-    created: 2018-08-28T09:48:05.481338129Z
+    created: 2018-08-28T09:54:12.11323446Z
     description: Redis also running on OpenShift
     digest: a35d3de9d0ee8942641564c7d756eacf9265b5cbd7172a2a439df59d9bdba924
     keywords:
@@ -105,7 +105,7 @@ entries:
     version: 0.1.1
   - apiVersion: v1
     appVersion: "3.2"
-    created: 2018-08-28T09:48:05.480914571Z
+    created: 2018-08-28T09:54:12.112383465Z
     description: Redis also running on OpenShift
     digest: ecd10417c4ded7538a98dd70ff8ad37c268d9e7c7473cc649b246d3ad4d7ed76
     keywords:
@@ -121,19 +121,33 @@ entries:
   rocketchat:
   - apiVersion: v1
     appVersion: 0.63.3
-    created: 2018-08-28T09:48:05.482110458Z
+    created: 2018-08-28T09:54:12.117050767Z
     description: Rocket.Chat chat application
-    digest: d4035be1423eece6f2f334249a285a59ade3c7f0a355d0994945e9e818dff789
+    digest: 52063856570829b7647108d1c987042c0fd945cf034daa8338200dc2dc72083a
     name: rocketchat
     urls:
     - https://porscheinformatik.github.io/helm-charts/rocketchat-0.2.0.tgz
     version: 0.2.0
+  sonarqube:
+  - apiVersion: v1
+    appVersion: 6.7.5
+    created: 2018-08-28T09:54:12.117857218Z
+    description: Sonarqube is an open sourced code quality scanning tool
+    digest: 9cef3e9c921325642e7e40fcee2f8537ac9b54e301210e2ac514c395c99b95fc
+    home: https://www.sonarqube.org/
+    icon: https://www.sonarqube.org/assets/logo-31ad3115b1b4b120f3d1efd63e6b13ac9f1f89437f0cf6881cc4d8b5603a52b4.svg
+    name: sonarqube
+    sources:
+    - https://github.com/porscheinformatik/docker-sonarqube
+    urls:
+    - https://porscheinformatik.github.io/helm-charts/sonarqube-0.1.0.tgz
+    version: 0.1.0
   wekan:
   - apiVersion: v1
     appVersion: v1.00
-    created: 2018-08-28T09:48:05.482844181Z
+    created: 2018-08-28T09:54:12.118927837Z
     description: Wekan - The open-source Trello-like kanban.
-    digest: 5eb11b27b5b804b6386c7d70b013727151b33905d87f3a5d23c12893c903681e
+    digest: 3cde5b0be845ea62f2ffacb549f2b67a36791cc231d95ee81b2811e2312a0e62
     name: wekan
     urls:
     - https://porscheinformatik.github.io/helm-charts/wekan-0.1.0.tgz
@@ -141,11 +155,11 @@ entries:
   zanata:
   - apiVersion: v1
     appVersion: 4.4.5
-    created: 2018-08-28T09:48:05.483709144Z
+    created: 2018-08-28T09:54:12.120564204Z
     description: Zanata Translation Server
-    digest: be47a8cd5d6bb2c3de3fb58ed659626cb0df68cdfff4a3751b074a49365bb68f
+    digest: 226d6d1b8829a5014b9d5a7a724c49b23b32c6bc0cf933cf22cf9feceb7bcee9
     name: zanata
     urls:
     - https://porscheinformatik.github.io/helm-charts/zanata-0.1.0.tgz
     version: 0.1.0
-generated: 2018-08-28T09:48:05.477553228Z
+generated: 2018-08-28T09:54:12.098577507Z
