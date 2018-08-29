@@ -3,8 +3,7 @@ kind: Service
 metadata:
   name: {{ template "mariadb.fullname" . }}
   labels:
-    app: {{ .Release.Name }}
-    module: {{ template "mariadb.name" . }}
+    app: {{ template "mariadb.name" . }}
     chart: {{ template "mariadb.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -16,6 +15,5 @@ spec:
       protocol: TCP
       name: mysql
   selector:
-    app: {{ .Release.Name }}
-    module: {{ template "mariadb.name" . }}
+    app: {{ template "mariadb.name" . }}
     release: {{ .Release.Name }}

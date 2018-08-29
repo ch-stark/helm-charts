@@ -3,8 +3,7 @@ kind: Deployment
 metadata:
   name: {{ template "mariadb.fullname" . }}
   labels:
-    app: {{ .Release.Name }}
-    module: {{ template "mariadb.name" . }}
+    app: {{ template "mariadb.name" . }}
     chart: {{ template "mariadb.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -12,15 +11,14 @@ spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      module: {{ template "mariadb.name" . }}
+      app: {{ template "mariadb.name" . }}
       release: {{ .Release.Name }}
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: {{ .Release.Name }}
-        module: {{ template "mariadb.name" . }}
+        app: {{ template "mariadb.name" . }}
         release: {{ .Release.Name }}
     spec:
       containers:

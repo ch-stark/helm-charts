@@ -3,8 +3,7 @@ kind: Service
 metadata:
   name: {{ template "sonarqube.fullname" . }}
   labels:
-    app: {{ .Release.Name }}
-    module: {{ template "sonarqube.name" . }}
+    app: {{ template "sonarqube.name" . }}
     chart: {{ template "sonarqube.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -16,6 +15,5 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app: {{ .Release.Name }}
-    module: {{ template "sonarqube.name" . }}
+    app: {{ template "sonarqube.name" . }}
     release: {{ .Release.Name }}

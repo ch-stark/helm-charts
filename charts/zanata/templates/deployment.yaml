@@ -3,8 +3,7 @@ kind: Deployment
 metadata:
   name: {{ template "zanata.fullname" . }}
   labels:
-    app: {{ .Release.Name }}
-    module: {{ template "zanata.name" . }}
+    app: {{ template "zanata.name" . }}
     chart: {{ template "zanata.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -14,14 +13,12 @@ spec:
     type: Recreate
   selector:
     matchLabels:
-      app: {{ .Release.Name }}
-      module: {{ template "zanata.name" . }}
+      app: {{ template "zanata.name" . }}
       release: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ .Release.Name }}
-        module: {{ template "zanata.name" . }}
+        app: {{ template "zanata.name" . }}
         release: {{ .Release.Name }}
     spec:
       volumes:

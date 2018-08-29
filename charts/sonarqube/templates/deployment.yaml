@@ -3,8 +3,7 @@ kind: Deployment
 metadata:
   name: {{ template "sonarqube.fullname" . }}
   labels:
-    app: {{ .Release.Name }}
-    module: {{ template "sonarqube.name" . }}
+    app: {{ template "sonarqube.name" . }}
     chart: {{ template "sonarqube.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -14,14 +13,12 @@ spec:
     type: Recreate
   selector:
     matchLabels:
-      app: {{ .Release.Name }}
-      module: {{ template "sonarqube.name" . }}
+      app: {{ template "sonarqube.name" . }}
       release: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ .Release.Name }}
-        module: {{ template "sonarqube.name" . }}
+        app: {{ template "sonarqube.name" . }}
         release: {{ .Release.Name }}
     spec:
       terminationGracePeriodSeconds: 60

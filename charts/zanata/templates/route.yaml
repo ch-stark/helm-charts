@@ -4,8 +4,7 @@ kind: Route
 metadata:
   name: {{ template "zanata.fullname" . }}
   labels:
-    app: {{ .Release.Name }}
-    module: {{ template "zanata.name" . }}
+    app: {{ template "zanata.name" . }}
     chart: {{ template "zanata.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}

@@ -3,8 +3,7 @@ kind: Service
 metadata:
   name: {{ template "zanata.fullname" . }}
   labels:
-    app: {{ .Release.Name }}
-    module: {{ template "zanata.name" . }}
+    app: {{ template "zanata.name" . }}
     chart: {{ template "zanata.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -16,6 +15,5 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app: {{ .Release.Name }}
-    module: {{ template "zanata.name" . }}
+    app: {{ template "zanata.name" . }}
     release: {{ .Release.Name }}
