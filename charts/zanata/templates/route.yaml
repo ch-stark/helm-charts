@@ -13,6 +13,7 @@ spec:
   {{- if .Values.route.hostname }}
   host: {{ .Values.route.hostname }}
   {{- end }}
+  path: {{ .Values.route.path }}
   port:
     targetPort: http
   {{- if .Values.route.tls }}

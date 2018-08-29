@@ -23,6 +23,7 @@ service:
 route:
   enabled: false
   # hostname:
+  path: /zanata
   tls:
     termination: edge
 
