@@ -1,0 +1,85 @@
+# Default values for activemq.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+image:
+  drainer:
+    repository: jboss-amq-6/amq63-openshift
+    tag: 1.3
+    pullPolicy: Always
+  activemq:
+    repository: jboss-amq-6/amq63-openshift
+    tag: 1.3
+    pullPolicy: Always
+
+replicaCount: 3
+    
+serviceType: ClusterIP
+
+service:
+  amqp:
+    ssl:
+      type: ClusterIP
+      port: 5671
+  mqtt:
+    ssl:
+      type: ClusterIP
+      port: 8883
+  stomp:
+    ssl:
+      type: ClusterIP
+      port: 61612
+  tcp:
+    ssl:
+      type: ClusterIP
+      port: 61617
+  mesh:
+    type: ClusterIP
+    port: 61616
+  jolokia:
+    type: ClusterIP
+    port: 8778
+    
+application:
+  mqprotocol: openwire,stomp
+  mqserializeablepackages: "*"
+  mqsplit: true
+  mqmeshdisocerytype: dns
+  mqstoragelimit: 2GB
+  mqqueuememorylimit: 10MB
+    
+resources:
+  limits:
+    cpu: 1
+    memory: 1Gi
+  requests:
+    cpu: 100m
+    memory: 768Mi
+    
+storage:
+  className: "glusterfs-storage"
+  accessMode: "ReadWriteMany"
+  capacity: "10Gi"
+
+#for your key and truststore create them first and take the base64 encoded string to put it here in the file strings
+# e.g.: bash: cat keystore.jks | base64 -w0
+# e.g.: bash: cat truststore.jks | base64 -w0
+secrets:
+  authentication:
+    username: "amquser"
+    password: "amqpass"
+  ssl:
+    broker:
+      ks: 
+        file: "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"
+        password: "changeit;-)"
+      ts: 
+        file: "/u3+7QAAAAIAAAAB4MwggJroAMCAQICBEybh1gwDQYJKoZIhvcNAQELBQAwcSomeReallyLongBase64EncodedTruststoreStringjELMAkGA1UEBhMCQVQxETAPBgNVBAgTCFNhbHpidXJnMREwDwYDSUG9yc2NoZSBJbmZvcm1hdGlrMQ8wDQYDVQQLEwZDcm9zczMxDzANBgNVBAMTBkNyb3NzMzAeFw0xODA5MjAxMDE1MzBaFw0yODA5MTcxMDE1MzBaMHIxCzAJBgNVBAYTAkFUMREwDwYDVQQIEwhTYWx6YnVyZzERMA8GA1UEBxMIU2FsemJ1cmcxGzAZBgNVBAoTElBvcnNjaGUgSW5mb3JtYXRpazEPMA0GA1UECxMGQ3Jvc3MzMQ8wDQYDVQQDEwZDcm9zczMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCBk8Paa2Z9aex4E5jTlGRSsUdFXPcKDqDv8lKdoJOGu+qG/HV8W2LxVjOb8bdTfOj8fDKxH5sTcLb9Fh2LGF5O4qDccYtxI4YqGshRgghjrnmPVbgxca5GsYPRYn3eQaXqPwnVxl71VRrXSgAsZSKaOxbEckJ4ThxGgn3bcDgOdmrZsLh5EAvISKH+zka4ufFlGtsjhhrTdmuiVFz0Ry6p7zuwg7dHFL8CHazGVbmvYSGv8E+OdspcAzRIxl9jLZqzaViHua10hteefz3DY7CejW2TNKWpf4vgNYUNDH5Ktx3zgpAVUe8TOCZwrWPCtzZagYYzDYhcb4P2fKzj23xpAgMBAAGjITAfMB0GA1UdDgQWBBSFJXIW5fbaliMksEJZxxwUfDuudTANBgkqhkiG9w0BAQsFAAOCAQEATlntkjyHEtLPzbU4gbIqOp0WEkT/wvjVkE7BOFGkqX2vaRq35xSPmW44U7eR1YZsjtCM7ai1UyF595clSHB5pwWoAxpK0KBunVecqKv0JI726pkqLKVSjwLAHB4cDsRWlzS3s6vpAD8hLrYdlNY6eLwZXmY2In6bgWyakjV7+MuGA3HEmsndfmLV1IntxtK4mULY3n0yyx+FgKa5nVDkvATnwKEM6tHkhpninj5S62D4zRtJEoE8RRS7zONmy6dGFMqUC3P0eEpV29k9WHqY8h+d/S6gYCLN3OAy/QN5xSC2Lf6LYZ3o3sSDpI6b70VCy6+M6W5bOgRWNXv7oeT7aDQSwIIyL+FeL+8tiDS0txeRfiK3"
+        password: "changeit;-)"
+
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
