@@ -87,7 +87,7 @@ metadata:
     chart: {{ template "activemq.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
-  annotation:
+  annotations:
     service.alpha.kubernetes.io/tolerate-unready-endpoints: 'true'
     description: Supports node discovery for mesh formation.
 spec:
@@ -95,7 +95,7 @@ spec:
   type: {{ .Values.service.mesh.type }}
   ports:
     - port: {{ .Values.service.mesh.port }}
-      targetPort: http
+      targetPort: {{ .Values.service.mesh.port }}
       protocol: TCP
       name: amq-mesh
   selector:
