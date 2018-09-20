@@ -1,7 +1,7 @@
 apiVersion: apps.openshift.io/v1
 kind: DeploymentConfig
 metadata:
-  name: {{ template "activemq.fullname" . }}
+  name: {{ template "activemq.name" . }}
   labels:
     app: {{ template "activemq.name" . }}
     chart: {{ template "activemq.chart" . }}
@@ -14,19 +14,20 @@ spec:
     rollingParams:
       maxSurge: 0
   selector:
-    deploymentConfig: {{ template "activemq.fullname" . }}-amq
+    app: {{ template "activemq.name" . }}
+    release: {{ .Release.Name }}
   template:
     metadata:
-      name: {{ template "activemq.fullname" . }}-amq
+      name: {{ template "activemq.name" . }}-amq
       labels:
-        deploymentConfig: {{ template "activemq.fullname" . }}-amq
-        application: {{ template "activemq.fullname" . }}
+        app: {{ template "activemq.name" . }}
+        release: {{ .Release.Name }}
     spec:
       terminationGracePeriodSeconds: 60
       serviceAccount: {{ template "activemq.name" . }}
       serviceAccountName: {{ template "activemq.name" . }}
       containers:
-      - name: {{ template "activemq.fullname" . }}-amq
+      - name: {{ template "activemq.name" . }}-amq
         image: "{{ .Values.image.activemq.repository }}:{{ .Values.image.activemq.tag }}"
         imagePullPolicy: {{ .Values.image.activemq.pullPolicy }}
         volumeMounts:
@@ -34,7 +35,7 @@ spec:
           mountPath: "/etc/amq-secret-volume"
           readOnly: true
         - mountPath: "/opt/amq/data"
-          name: {{ template "activemq.fullname" . }}-amq-pvol
+          name: {{ template "activemq.name" . }}-amq-pvol
         readinessProbe:
           exec:
             command:
@@ -69,12 +70,12 @@ spec:
           valueFrom:
             secretKeyRef:
               key: activemq.username
-              name: {{ template "activemq.fullname" . }}
+              name: {{ template "activemq.name" . }}
         - name: AMQ_PASSWORD
           valueFrom:
             secretKeyRef:
               key: activemq.password
-              name: {{ template "activemq.fullname" . }}
+              name: {{ template "activemq.name" . }}
         - name: AMQ_TRANSPORTS
           value: {{ .Values.application.mqprotocol }}
         - name: AMQ_QUEUES
@@ -88,7 +89,7 @@ spec:
         - name: AMQ_MESH_DISCOVERY_TYPE
           value: {{ .Values.application.mqmeshdisocerytype }}
         - name: AMQ_MESH_SERVICE_NAME
-          value: {{ template "activemq.fullname" . }}-amq-mesh
+          value: {{ template "activemq.name" . }}-amq-mesh
         - name: AMQ_MESH_SERVICE_NAMESPACE
           valueFrom:
             fieldRef:
@@ -101,14 +102,14 @@ spec:
           valueFrom:
             secretKeyRef:
               key: activemq.truststore.password
-              name: {{ template "activemq.fullname" . }}
+              name: {{ template "activemq.name" . }}
         - name: AMQ_KEYSTORE
           value: broker.ks
         - name: AMQ_KEYSTORE_PASSWORD
           valueFrom:
             secretKeyRef:
               key: activemq.keystore.password
-              name: {{ template "activemq.fullname" . }}
+              name: {{ template "activemq.name" . }}
         - name: AMQ_STORAGE_USAGE_LIMIT
           value: {{ .Values.application.mqstoragelimit }}
         - name: AMQ_QUEUE_MEMORY_LIMIT
@@ -116,17 +117,20 @@ spec:
       volumes:
       - name: broker-secret-volume
         secret:
-          secretName: {{ template "activemq.fullname" . }}
-      - name: {{ template "activemq.fullname" . }}-amq-pvol
+          secretName: {{ template "activemq.name" . }}
+      - name: {{ template "activemq.name" . }}-amq-pvol
         persistentVolumeClaim:
           claimName: {{ template "activemq.name" . }}
 ---
 kind: DeploymentConfig
 apiVersion: apps.openshift.io/v1
 metadata:
-  name: {{ template "activemq.fullname" . }}-drainer
+  name: {{ template "activemq.name" . }}-drainer
   labels:
-    application: {{ template "activemq.fullname" . }}
+    app: {{ template "activemq.name" . }}-drainer
+    chart: {{ template "activemq.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
 spec:
   securityContext: {}
   serviceAccount: {{ template "activemq.name" . }}
@@ -135,19 +139,20 @@ spec:
     type: Recreate
   replicas: 1
   selector:
-    deploymentConfig: {{ template "activemq.fullname" . }}-drainer
+    app: {{ template "activemq.name" . }}-drainer
+    release: {{ .Release.Name }}
   template:
     metadata:
-      name: {{ template "activemq.fullname" . }}-drainer
+      name: {{ template "activemq.name" . }}-drainer
       labels:
-        deploymentConfig: {{ template "activemq.fullname" . }}-drainer
-        application: {{ template "activemq.fullname" . }}
+        app: {{ template "activemq.name" . }}-drainer
+        release: {{ .Release.Name }}
     spec:
       terminationGracePeriodSeconds: 60
       serviceAccount: {{ template "activemq.name" . }}
       serviceAccountName: {{ template "activemq.name" . }}
       containers:
-      - name: {{ template "activemq.fullname" . }}-drainer
+      - name: {{ template "activemq.name" . }}-drainer
         image: "{{ .Values.image.drainer.repository }}:{{ .Values.image.drainer.tag }}"
         imagePullPolicy: {{ .Values.image.drainer.pullPolicy }}
         command:
@@ -155,7 +160,7 @@ spec:
         imagePullPolicy: Always
         volumeMounts:
         - mountPath: "/opt/amq/data"
-          name: {{ template "activemq.fullname" . }}-amq-pvol
+          name: {{ template "activemq.name" . }}-amq-pvol
         ports:
         - name: jolokia
           containerPort: {{ .Values.service.jolokia.port }}
@@ -168,14 +173,14 @@ spec:
           valueFrom:
             secretKeyRef:
               key: activemq.username
-              name: {{ template "activemq.fullname" . }}
+              name: {{ template "activemq.name" . }}
         - name: AMQ_PASSWORD
           valueFrom:
             secretKeyRef:
               key: activemq.password
-              name: {{ template "activemq.fullname" . }}
+              name: {{ template "activemq.name" . }}
         - name: AMQ_MESH_SERVICE_NAME
-          value: {{ template "activemq.fullname" . }}-amq-mesh
+          value: {{ template "activemq.name" . }}-amq-mesh
         - name: AMQ_MESH_SERVICE_NAMESPACE
           valueFrom:
             fieldRef:
@@ -188,6 +193,6 @@ spec:
             cpu: 300m
             memory: 512Mi
       volumes:
-      - name: {{ template "activemq.fullname" . }}-amq-pvol
+      - name: {{ template "activemq.name" . }}-amq-pvol
         persistentVolumeClaim:
           claimName: {{ template "activemq.name" . }}
