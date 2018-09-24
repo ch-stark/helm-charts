@@ -10,7 +10,7 @@ metadata:
     heritage: {{ .Release.Service }}
 data:
   haproxy.cfg: |-
-{{ if  .Values.config }}  
+{{ if  .Values.config }}
 {{ .Values.config | indent 4 }}
 {{ else if .Values.configfile }}
 {{ range .Files.Lines .Values.configfile }}
