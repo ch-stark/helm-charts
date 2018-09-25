@@ -36,7 +36,7 @@ spec:
             - name: REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ template "redis.fullname" . }}
+                  name: {{ .Release.Name }}-redis
                   key: redis-password
           livenessProbe:
             tcpSocket:
