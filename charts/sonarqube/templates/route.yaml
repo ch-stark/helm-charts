@@ -18,7 +18,7 @@ spec:
   {{- if .Values.route.tls }}
   tls:
   {{ toYaml .Values.route.tls | indent 2 }}
-  {{- end -}}
+  {{- end }}
   to:
     kind: Service
     name: {{ template "sonarqube.fullname" . }}
