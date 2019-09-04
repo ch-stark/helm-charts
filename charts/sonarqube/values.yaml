@@ -4,7 +4,7 @@
 
 image:
   repository: porscheinformatik/sonarqube
-  tag: 6.7.5-alpine
+  tag: 6.7.7
   pullPolicy: IfNotPresent
 
 # Set a context path for the SonarQube server
