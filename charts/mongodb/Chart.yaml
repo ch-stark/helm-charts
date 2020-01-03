@@ -9,4 +9,4 @@ keywords:
   - database
   - openshift
 sources:
-  - https://github.com/porscheinformatik/helm-charts
+  - https://github.com/ch-stark/helm-charts
